@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Card, CardMedia, makeStyles, Typography, withStyles } from '@material-ui/core';
+import { Box, Button, Card, CardMedia, Link, makeStyles, Typography, withStyles } from '@material-ui/core';
 import desktop_img_hero_1 from '../assets/desktop-image-hero-1.jpg';
 import desktop_img_hero_2 from '../assets/desktop-image-hero-2.jpg';
 import desktop_img_hero_3 from '../assets/desktop-image-hero-3.jpg';
@@ -21,17 +21,6 @@ const useStyles = makeStyles((theme) => ({
     mediaMain: {
         width: props => props.ratio * 840,
         height: props => props.ratio * 534,
-    },
-    shopNow: {
-        cursor: 'pointer',
-        color: 'hsl(0, 0%, 27%)',
-        '&:hover': {
-            color: 'hsl(0, 0%, 63%)',
-            '& svg': {
-                stroke: 'hsl(0, 0%, 63%)',
-                fill: 'hsl(0, 0%, 63%)',
-            },
-        },
     },
     nav: {
         right: theme.spacing(48),
@@ -58,6 +47,23 @@ const ArrowButton = withStyles((theme) => ({
         padding: theme.spacing(3),
     },
 }))(Button);
+
+const ShopNowLink = withStyles((theme) => ({
+    root: {
+        color: 'hsl(0, 0%, 27%)',
+        '& svg': {
+            stroke: 'hsl(0, 0%, 27%)',
+            fill: 'hsl(0, 0%, 27%)',
+        }, 
+        '&:hover': {
+            color: 'hsl(0, 0%, 63%)',
+            '& svg': {
+                stroke: 'hsl(0, 0%, 63%)',
+                fill: 'hsl(0, 0%, 63%)',
+            },
+        }
+    }
+}))(Link);
 
 export default function Content(props) {
     const classes = useStyles({ ratio: .895 });
@@ -106,8 +112,10 @@ export default function Content(props) {
                         <Box component='div' fontWeight={700} color='hsl(0, 0%, 0%)' mb={3}>{data.content.title}</Box>
                     </Typography>
                     <Box lineHeight={1.5}>{data.content.content}</Box>
-                    <Box pt={4} letterSpacing={6} fontWeight={700} className={classes.shopNow}>
-                        SHOP NOW <ArrowIcon />
+                    <Box pt={4} letterSpacing={6} fontWeight={700}>
+                        <ShopNowLink href='#' underline='none' onClick={() => {
+                            console.log(data.index);
+                        }}>SHOP NOW <ArrowIcon /></ShopNowLink>
                     </Box>
                 </Box>
             </Box>
@@ -121,7 +129,7 @@ export default function Content(props) {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        fade: true,
+        
     };
 
     return (<Box className={classes.content}>
@@ -132,7 +140,8 @@ export default function Content(props) {
             {contentArray.map((item, index) => (
                 <ContentTemplate
                     key={index}
-                    content={item} />
+                    content={item}
+                    index={index} />
             ))}
         </Slider>
         <Box display='inline' position='absolute' className={classes.nav}>
