@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardMedia, makeStyles } from '@material-ui/core';
+import { Box, Card, CardMedia, makeStyles, Typography } from '@material-ui/core';
 import img_about_dark from '../assets/image-about-dark.jpg';
 import img_about_light from '../assets/image-about-light.jpg';
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function About(props) {
-    const classes = useStyles({ ratio: .915 });
+    const classes = useStyles({ ratio: .96 });
     return (<React.Fragment>
         <Box display='flex'>
             <Box>
@@ -24,15 +24,23 @@ export default function About(props) {
                         image={img_about_dark} />
                 </Card>
             </Box>
-            <Box p={5} flexGrow={1}>
-                <Box fontWeight={700}
-                    letterSpacing={5}                    
-                    color='hsl(0, 0%, 0%)'
-                    className={classes.title}>About our furniture</Box>
-                <Box lineHeight={1.6}>Our multifunctional collection blends design and function to suit your individual taste.
-                Make each room unique, or pick a cohesive theme that best express your interests and what
-                inspires you. Find the furniture pieces you need, from traditional to contemporary styles
-                or anything in between. Product specialists are available to help you create your dream space.
+            <Box flexGrow={1}
+                px={6}>
+                <Box display='flex'
+                    flexDirection='column'
+                    justifyContent='center'
+                    height='100%'>
+                    <Box>
+                        <Box fontWeight={700}
+                            letterSpacing={5}
+                            color='hsl(0, 0%, 0%)'
+                            className={classes.title}>About our furniture</Box>
+                        <Typography component='div' variant='body2'>Our multifunctional collection blends design and function to suit your individual taste.
+                            Make each room unique, or pick a cohesive theme that best express your interests and what
+                            inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+                            or anything in between. Product specialists are available to help you create your dream space.
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
             <Box>

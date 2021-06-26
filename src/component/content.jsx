@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
             height: props => props.ratio * 534,
         }
     },
-    mediaMain: {
-        width: props => props.ratio * 840,
-        height: props => props.ratio * 534,
+    contentText: {
+        paddingLeft: theme.spacing(10),
+        paddingRight: theme.spacing(9),
     },
     nav: {
-        right: theme.spacing(48),
+        right: `calc(${theme.spacing(50)}px + 4px)`,
         bottom: 0,
         '& svg': {
             margin: '0 5px',
@@ -51,6 +51,7 @@ const ArrowButton = withStyles((theme) => ({
 const ShopNowLink = withStyles((theme) => ({
     root: {
         color: 'hsl(0, 0%, 27%)',
+        fontWeight: '600',
         '& svg': {
             stroke: 'hsl(0, 0%, 27%)',
             fill: 'hsl(0, 0%, 27%)',
@@ -102,20 +103,18 @@ export default function Content(props) {
                         image={data.content.img} />
                 </Card>
             </Box>
-            <Box flexGrow={1} px={11} position='relative'>
+            <Box flexGrow={1} className={classes.contentText}>
                 <Box display='flex'
-                    flex={1}
                     flexDirection='column'
                     justifyContent='center'
-                    height='100%'>
+                    height='100%'
+                    >
                     <Typography componet='div' variant='h4'>
                         <Box component='div' fontWeight={700} color='hsl(0, 0%, 0%)' mb={3}>{data.content.title}</Box>
                     </Typography>
-                    <Box lineHeight={1.5}>{data.content.content}</Box>
+                    <Typography component='div' variant='body2'>{data.content.content}</Typography>
                     <Box pt={4} letterSpacing={6} fontWeight={700}>
-                        <ShopNowLink href='#' underline='none' onClick={() => {
-                            console.log(data.index);
-                        }}>SHOP NOW <ArrowIcon /></ShopNowLink>
+                        <ShopNowLink href='#' underline='none'>SHOP NOW <ArrowIcon /></ShopNowLink>
                     </Box>
                 </Box>
             </Box>

@@ -9,10 +9,11 @@ const theme = createMuiTheme({
   typography: {
     fontSize: 12,
     fontFamily: [
-      'Spartan'
+      'Spartan', 'san-serif'
     ].join(','),
     body2: {
-      color: 'hsl(0, 0%, 63%)'
+      color: 'hsl(0, 0%, 63%)',
+      lineHeight: '1.6'
     }
   },
   overrides: {

@@ -6,11 +6,10 @@ import About from './component/about';
 
 const useStyle = makeStyles((theme) => ({
   container: {
+    padding: theme.spacing(0),
     [theme.breakpoints.up('lg')]: {
-      padding: theme.spacing(0),
-    },
-    // width: 1440,
-    // maxWidth: 1440
+      maxWidth: 1300
+    }
   }
 }));
 

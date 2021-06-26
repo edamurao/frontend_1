@@ -10,10 +10,9 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         color: 'hsl(0, 0%, 100%)',
         textTransform: 'lowercase',
-        fontWeight: '700',
         marginTop: theme.spacing(4),
         paddingLeft: theme.spacing(7),
-        zIndex: theme.zIndex.appBar,
+        zIndex: theme.zIndex.appBar,        
     },
     ulNav: {      
         paddingInlineStart: 0,          
@@ -29,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
             textDecoration: 'none',
             textTransform: 'inherit',
             color: 'inherit',            
-            fontWeight: '700',
+            // fontWeight: '700',
             position: 'relative',
             '&:hover': {
                 textDecoration: 'inherit'
