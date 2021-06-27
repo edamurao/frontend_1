@@ -8,7 +8,7 @@ const useStyle = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(0),
     [theme.breakpoints.up('lg')]: {
-      maxWidth: 1300
+      maxWidth: 1440
     }
   }
 }));

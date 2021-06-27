@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: theme.spacing(9),
     },
     nav: {
-        right: `calc(${theme.spacing(50)}px + 4px)`,
+        right: `calc(${theme.spacing(52)}px + 7px)`,
         bottom: 0,
         '& svg': {
             margin: '0 5px',
@@ -67,7 +67,7 @@ const ShopNowLink = withStyles((theme) => ({
 }))(Link);
 
 export default function Content(props) {
-    const classes = useStyles({ ratio: .895 });
+    const classes = useStyles({ ratio: 1.04 });
     const sliderRef = React.useRef();
     const contentArray = [
         {
@@ -110,7 +110,7 @@ export default function Content(props) {
                     height='100%'
                     >
                     <Typography componet='div' variant='h4'>
-                        <Box component='div' fontWeight={700} color='hsl(0, 0%, 0%)' mb={3}>{data.content.title}</Box>
+                        <Box component='div' color='hsl(0, 0%, 0%)' mb={3}>{data.content.title}</Box>
                     </Typography>
                     <Typography component='div' variant='body2'>{data.content.content}</Typography>
                     <Box pt={4} letterSpacing={6} fontWeight={700}>

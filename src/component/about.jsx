@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function About(props) {
-    const classes = useStyles({ ratio: .96 });
+    const classes = useStyles({ ratio: 1.005 });
     return (<React.Fragment>
         <Box display='flex'>
             <Box>

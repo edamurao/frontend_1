@@ -14,6 +14,11 @@ const theme = createMuiTheme({
     body2: {
       color: 'hsl(0, 0%, 63%)',
       lineHeight: '1.6'
+    },
+    h4: {
+      fontSize: 38,
+      fontWeight: 600,
+      lineHeight: 1
     }
   },
   overrides: {
