@@ -1,8 +1,11 @@
 import React from 'react';
-import { Box, Button, Card, CardMedia, Link, makeStyles, Typography, withStyles } from '@material-ui/core';
+import { Box, Button, Card, CardMedia, Link, makeStyles, Typography, useMediaQuery, useTheme, withStyles, SvgIcon } from '@material-ui/core';
 import desktop_img_hero_1 from '../assets/desktop-image-hero-1.jpg';
 import desktop_img_hero_2 from '../assets/desktop-image-hero-2.jpg';
 import desktop_img_hero_3 from '../assets/desktop-image-hero-3.jpg';
+import mobile_img_hero_1 from '../assets/mobile-image-hero-1.jpg';
+import mobile_img_hero_2 from '../assets/mobile-image-hero-2.jpg';
+import mobile_img_hero_3 from '../assets/mobile-image-hero-3.jpg';
 import { ReactComponent as ArrowIcon } from '../assets/icon-arrow.svg';
 import { ReactComponent as AngleRightIcon } from '../assets/icon-angle-right.svg';
 import { ReactComponent as AngleLeftIcon } from '../assets/icon-angle-left.svg';
@@ -13,20 +16,44 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
     },
     media: {
-        '& .MuiCardMedia-root': {
-            width: props => props.ratio * 840,
-            height: props => props.ratio * 534,
+        width: '100%',
+        height: 360,
+        [theme.breakpoints.up('lg')]: {
+            width: 840,
+            height: 534,
         }
     },
+    contentTitle: {
+        fontSize: 28
+    },
     contentText: {
-        paddingLeft: theme.spacing(10),
-        paddingRight: theme.spacing(9),
+        padding: theme.spacing(10, 4),
+        [theme.breakpoints.up('lg')]: {
+            padding: theme.spacing(0, 11),
+        }
+    },
+    navContainer: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        height: 360,
+        width: '100%',
+        [theme.breakpoints.up('lg')]: {
+            width: 840,
+            height: 534,
+            left: 0
+        }
     },
     nav: {
-        right: `calc(${theme.spacing(52)}px + 7px)`,
+        display: 'inline-block',
+        position: 'absolute',
         bottom: 0,
+        right: 0,
         '& svg': {
             margin: '0 5px',
+        },
+        [theme.breakpoints.up('lg')]: {
+            right: -163
         }
     },
     slider: {
@@ -44,7 +71,10 @@ const ArrowButton = withStyles((theme) => ({
     root: {
         backgroundColor: 'hsl(0, 0%, 0%)',
         borderRadius: 0,
-        padding: theme.spacing(3),
+        padding: theme.spacing(2.5),
+        [theme.breakpoints.up('lg')]: {
+            padding: theme.spacing(3.16)
+        }
     },
 }))(Button);
 
@@ -55,7 +85,7 @@ const ShopNowLink = withStyles((theme) => ({
         '& svg': {
             stroke: 'hsl(0, 0%, 27%)',
             fill: 'hsl(0, 0%, 27%)',
-        }, 
+        },
         '&:hover': {
             color: 'hsl(0, 0%, 63%)',
             '& svg': {
@@ -69,19 +99,24 @@ const ShopNowLink = withStyles((theme) => ({
 export default function Content(props) {
     const classes = useStyles({ ratio: 1.04 });
     const sliderRef = React.useRef();
+    const theme = useTheme();
+    const mediaDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+
+    console.log(theme.breakpoints.up('xs'));
+
     const contentArray = [
         {
-            img: desktop_img_hero_1,
+            img: mediaDesktop ? desktop_img_hero_1 : mobile_img_hero_1,
             title: 'Discover innovative ways to decorate',
             content: 'We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.'
         },
         {
-            img: desktop_img_hero_2,
+            img: mediaDesktop ? desktop_img_hero_2 : mobile_img_hero_2,
             title: 'We are available all across the globe',
             content: "With stores all over the world, it's easy for you to find furniture for your home or place of business. Locally, we’re in most major cities throughout the country. Find the branch nearest you using our store locator. Any questions? Don't hesitate to contact us today."
         },
         {
-            img: desktop_img_hero_3,
+            img: mediaDesktop ? desktop_img_hero_3 : mobile_img_hero_3,
             title: 'Manufactured with the best materials',
             content: 'Our modern furniture store provide a high level of quality. Our company has invested in advanced technology to ensure that every product is made as perfect and as consistent as possible. With three decades of experience in this industry, we understand what customers want for their home and office.'
         }
@@ -96,10 +131,11 @@ export default function Content(props) {
     }
 
     const ContentTemplate = (data) => {
-        return (<Box display='flex'>
+        return (<Box display='flex'
+            flexDirection={mediaDesktop ? 'row' : 'column'}>
             <Box>
-                <Card square className={classes.media}>
-                    <CardMedia
+                <Card square>
+                    <CardMedia className={classes.media}
                         image={data.content.img} />
                 </Card>
             </Box>
@@ -108,8 +144,8 @@ export default function Content(props) {
                     flexDirection='column'
                     justifyContent='center'
                     height='100%'
-                    >
-                    <Typography componet='div' variant='h4'>
+                >
+                    <Typography componet='div' variant='h4' className={classes.contentTitle}>
                         <Box component='div' color='hsl(0, 0%, 0%)' mb={3}>{data.content.title}</Box>
                     </Typography>
                     <Typography component='div' variant='body2'>{data.content.content}</Typography>
@@ -128,10 +164,10 @@ export default function Content(props) {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        
+
     };
 
-    return (<Box className={classes.content}>
+    return (<Box className={classes.content} postion='relative'>
         <Slider
             ref={slider => (sliderRef.current = slider)}
             {...sliderSettings}
@@ -143,13 +179,15 @@ export default function Content(props) {
                     index={index} />
             ))}
         </Slider>
-        <Box display='inline' position='absolute' className={classes.nav}>
-            <ArrowButton variant='contained' onClick={handlePreviousClick}>
-                <AngleLeftIcon />
-            </ArrowButton>
-            <ArrowButton variant='contained' onClick={handleNextClick}>
-                <AngleRightIcon />
-            </ArrowButton>
+        <Box className={classes.navContainer}>
+            <Box className={classes.nav}>
+                <ArrowButton disableFocusRipple variant='contained' onClick={handlePreviousClick}>
+                    <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleLeftIcon} />
+                </ArrowButton>
+                <ArrowButton variant='contained' onClick={handleNextClick}>
+                    <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleRightIcon} />
+                </ArrowButton>
+            </Box>
         </Box>
     </Box>)
 }

@@ -6,9 +6,10 @@ import About from './component/about';
 
 const useStyle = makeStyles((theme) => ({
   container: {
-    padding: theme.spacing(0),
+    padding: 0,
     [theme.breakpoints.up('lg')]: {
-      maxWidth: 1440
+      maxWidth: 1440,
+      padding: '0px 8.5px',
     }
   }
 }));
@@ -19,14 +20,12 @@ function App() {
     <Container className={classes.container}>
       <Header />
       <Box boxShadow={5}>
-        <Grid container spacing={0}>          
-          <Grid item sm={12}>
+        <Grid container spacing={0}>
+          <Grid item xs={12}>
             <Content />
           </Grid>
-          <Grid item sm={12}>
-            <Box>
-              <About />
-            </Box>
+          <Grid item xs={12}>
+            <About />
           </Grid>
         </Grid>
       </Box>
