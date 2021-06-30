@@ -123,7 +123,7 @@ export default function Header(props) {
     useEffect(() => {
         if(showMobileMenu)
             setShowMobileMenu(false);
-    }, [mediaDesktop]);
+    }, [mediaDesktop, showMobileMenu]);
 
     const handleMobileMenuClick = () => {
         setShowMobileMenu(!showMobileMenu);
