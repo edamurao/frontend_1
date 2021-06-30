@@ -1,29 +1,35 @@
 {
   "files": {
     "main.css": "/frontend_1/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/frontend_1/static/js/main.b8e413c4.chunk.js",
-    "main.js.map": "/frontend_1/static/js/main.b8e413c4.chunk.js.map",
-    "runtime-main.js": "/frontend_1/static/js/runtime-main.d6070ab3.js",
-    "runtime-main.js.map": "/frontend_1/static/js/runtime-main.d6070ab3.js.map",
-    "static/js/2.5e4f02df.chunk.js": "/frontend_1/static/js/2.5e4f02df.chunk.js",
-    "static/js/2.5e4f02df.chunk.js.map": "/frontend_1/static/js/2.5e4f02df.chunk.js.map",
-    "static/js/3.1b2d7640.chunk.js": "/frontend_1/static/js/3.1b2d7640.chunk.js",
-    "static/js/3.1b2d7640.chunk.js.map": "/frontend_1/static/js/3.1b2d7640.chunk.js.map",
+    "main.js": "/frontend_1/static/js/main.1962e3a8.chunk.js",
+    "main.js.map": "/frontend_1/static/js/main.1962e3a8.chunk.js.map",
+    "runtime-main.js": "/frontend_1/static/js/runtime-main.30f6c425.js",
+    "runtime-main.js.map": "/frontend_1/static/js/runtime-main.30f6c425.js.map",
+    "static/js/2.025e80b3.chunk.js": "/frontend_1/static/js/2.025e80b3.chunk.js",
+    "static/js/2.025e80b3.chunk.js.map": "/frontend_1/static/js/2.025e80b3.chunk.js.map",
+    "static/js/3.85ea32ed.chunk.js": "/frontend_1/static/js/3.85ea32ed.chunk.js",
+    "static/js/3.85ea32ed.chunk.js.map": "/frontend_1/static/js/3.85ea32ed.chunk.js.map",
     "index.html": "/frontend_1/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/frontend_1/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.5e4f02df.chunk.js.LICENSE.txt": "/frontend_1/static/js/2.5e4f02df.chunk.js.LICENSE.txt",
+    "static/js/2.025e80b3.chunk.js.LICENSE.txt": "/frontend_1/static/js/2.025e80b3.chunk.js.LICENSE.txt",
     "static/media/desktop-image-hero-1.91901d0d.jpg": "/frontend_1/static/media/desktop-image-hero-1.91901d0d.jpg",
     "static/media/desktop-image-hero-2.9d354056.jpg": "/frontend_1/static/media/desktop-image-hero-2.9d354056.jpg",
     "static/media/desktop-image-hero-3.05fd679a.jpg": "/frontend_1/static/media/desktop-image-hero-3.05fd679a.jpg",
     "static/media/icon-angle-left.d53877df.svg": "/frontend_1/static/media/icon-angle-left.d53877df.svg",
     "static/media/icon-angle-right.0ed3f81f.svg": "/frontend_1/static/media/icon-angle-right.0ed3f81f.svg",
     "static/media/icon-arrow.84087786.svg": "/frontend_1/static/media/icon-arrow.84087786.svg",
-    "static/media/image-about-dark.329bbc44.jpg": "/frontend_1/static/media/image-about-dark.329bbc44.jpg"
+    "static/media/icon-close.3e88bd6e.svg": "/frontend_1/static/media/icon-close.3e88bd6e.svg",
+    "static/media/icon-hamburger.dc022bac.svg": "/frontend_1/static/media/icon-hamburger.dc022bac.svg",
+    "static/media/image-about-dark.329bbc44.jpg": "/frontend_1/static/media/image-about-dark.329bbc44.jpg",
+    "static/media/logo.8fad0542.svg": "/frontend_1/static/media/logo.8fad0542.svg",
+    "static/media/mobile-image-hero-1.5de3d147.jpg": "/frontend_1/static/media/mobile-image-hero-1.5de3d147.jpg",
+    "static/media/mobile-image-hero-2.51db290a.jpg": "/frontend_1/static/media/mobile-image-hero-2.51db290a.jpg",
+    "static/media/mobile-image-hero-3.601d0f37.jpg": "/frontend_1/static/media/mobile-image-hero-3.601d0f37.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d6070ab3.js",
-    "static/js/2.5e4f02df.chunk.js",
+    "static/js/runtime-main.30f6c425.js",
+    "static/js/2.025e80b3.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.b8e413c4.chunk.js"
+    "static/js/main.1962e3a8.chunk.js"
   ]
 }
