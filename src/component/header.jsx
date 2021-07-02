@@ -123,10 +123,14 @@ export default function Header(props) {
     useEffect(() => {
         if(showMobileMenu)
             setShowMobileMenu(false);
-    }, [mediaDesktop, showMobileMenu]);
+    }, [mediaDesktop]);
 
     const handleMobileMenuClick = () => {
         setShowMobileMenu(!showMobileMenu);
+    }
+
+    const handleCloseMobileMenu = () => {
+        setShowMobileMenu(false);
     }
 
     const MenuList = () => {
@@ -157,6 +161,7 @@ export default function Header(props) {
         </Toolbar>
         <Dialog
             open={showMobileMenu}
+            onClose={handleCloseMobileMenu}
             className={classes.mobileMenu}
             fullWidth
             maxWidth='xl'
