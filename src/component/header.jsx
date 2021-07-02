@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9),
             margin: 0,
             textDecoration: 'none',
-            textTransform: 'inherit',
+            textTransform: 'lowercase',
             color: 'inherit',
             position: 'relative',
             '&:hover': {
