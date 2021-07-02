@@ -4,11 +4,16 @@ import img_about_dark from '../assets/image-about-dark.jpg';
 import img_about_light from '../assets/image-about-light.jpg';
 
 const useStyles = makeStyles((theme) => ({
+    containerMedia: {
+        [theme.breakpoints.up('lg')]: {
+            width: props => `${(840 / props.containerWidth) * 100}%`,
+        },
+    },
     media: {
         width: '100%',
         height: 266,
         [theme.breakpoints.up('lg')]: {
-            width: 420,
+            width: 440,
             height: 266,
         }
     },
@@ -27,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function About(props) {
-    const classes = useStyles({ ratio: 1.005 });
+    const classes = useStyles({ containerWidth: props.containerWidth });
     const theme = useTheme();
     const desktop = useMediaQuery(theme.breakpoints.up('md'));
 

@@ -4,12 +4,13 @@ import { Box, Container, Grid, makeStyles } from '@material-ui/core';
 import Content from './component/content';
 import About from './component/about';
 
+const containerWidth = 1423;
+
 const useStyle = makeStyles((theme) => ({
   container: {
     padding: 0,
     [theme.breakpoints.up('lg')]: {
-      maxWidth: 1440,
-      padding: '0px 8.5px',
+      maxWidth: containerWidth,
     }
   }
 }));
@@ -22,10 +23,13 @@ function App() {
       <Box boxShadow={5}>
         <Grid container spacing={0}>
           <Grid item xs={12}>
-            <Content />
+            <Content 
+              containerWidth={containerWidth}
+            />
           </Grid>
           <Grid item xs={12}>
-            <About />
+            <About 
+              containerWidth={containerWidth}/>
           </Grid>
         </Grid>
       </Box>

@@ -15,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
     content: {
         position: 'relative',
     },
+    contentMedia: {
+        [theme.breakpoints.up('lg')]: {
+            width: props => `${(840 / props.containerWidth) * 100}%`
+        }
+    },
     media: {
         width: '100%',
         height: 360,
@@ -39,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         height: 360,
         width: '100%',
         [theme.breakpoints.up('lg')]: {
-            width: 840,
+            width: props => `${(840 / props.containerWidth) * 100}%`,
             height: 534,
             left: 0
         }
@@ -53,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
             margin: '0 5px',
         },
         [theme.breakpoints.up('lg')]: {
-            right: -163
+            right: -142.19
         }
     },
     slider: {
@@ -73,7 +78,7 @@ const ArrowButton = withStyles((theme) => ({
         borderRadius: 0,
         padding: theme.spacing(2.5),
         [theme.breakpoints.up('lg')]: {
-            padding: theme.spacing(3.16)
+            padding: theme.spacing(3.16, 1.91, 3.16, 3.16)
         }
     },
 }))(Button);
@@ -97,12 +102,10 @@ const ShopNowLink = withStyles((theme) => ({
 }))(Link);
 
 export default function Content(props) {
-    const classes = useStyles({ ratio: 1.04 });
+    const classes = useStyles({ containerWidth: props.containerWidth });
     const sliderRef = React.useRef();
     const theme = useTheme();
     const mediaDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-
-    console.log(theme.breakpoints.up('xs'));
 
     const contentArray = [
         {
@@ -133,13 +136,14 @@ export default function Content(props) {
     const ContentTemplate = (data) => {
         return (<Box display='flex'
             flexDirection={mediaDesktop ? 'row' : 'column'}>
-            <Box>
+            <Box className={classes.contentMedia}>
                 <Card square>
                     <CardMedia className={classes.media}
                         image={data.content.img} />
                 </Card>
             </Box>
-            <Box flexGrow={1} className={classes.contentText}>
+            <Box
+                className={classes.contentText}>
                 <Box display='flex'
                     flexDirection='column'
                     justifyContent='center'
@@ -185,7 +189,9 @@ export default function Content(props) {
                     <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleLeftIcon} />
                 </ArrowButton>
                 <ArrowButton variant='contained' onClick={handleNextClick}>
-                    <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleRightIcon} />
+                    <SvgIcon
+                        fontSize={mediaDesktop ? 'default' : 'small'}
+                        component={AngleRightIcon} />
                 </ArrowButton>
             </Box>
         </Box>
