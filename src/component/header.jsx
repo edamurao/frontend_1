@@ -121,7 +121,7 @@ export default function Header(props) {
     const mediaDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
     useEffect(() => {
-        if(showMobileMenu)
+        if(mediaDesktop)
             setShowMobileMenu(false);
     }, [mediaDesktop]);
 
