@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         paddingTop: theme.spacing(3),
         paddingBottom: theme.spacing(3),
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('md')]: {
             paddingLeft: theme.spacing(7),
             color: 'hsl(0, 0%, 100%)',
             marginTop: theme.spacing(2),
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: 'auto',
             marginRight: 'auto',
         },
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('md')]: {
             paddingRight: theme.spacing(4),
             width: 'initial',
             '& svg': {
@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
                     transition: `transform 0s ${duration} ${easeOutBack}, opacity 0s ${duration}`
                 },
             },
-            [theme.breakpoints.up('lg')]: {
+            [theme.breakpoints.up('md')]: {
                 padding: theme.spacing(2, 0),                
             }
         },
@@ -118,7 +118,7 @@ export default function Header(props) {
     const classes = useStyles();
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const theme = useTheme();
-    const mediaDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+    const mediaDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     useEffect(() => {
         if(mediaDesktop)

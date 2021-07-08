@@ -11,20 +11,23 @@ import { ReactComponent as AngleRightIcon } from '../assets/icon-angle-right.svg
 import { ReactComponent as AngleLeftIcon } from '../assets/icon-angle-left.svg';
 import Slider from 'react-slick';
 
+const mediaWidthPerc = (840 / 1423) * 100;
+
 const useStyles = makeStyles((theme) => ({
     content: {
         position: 'relative',
     },
     contentMedia: {
-        [theme.breakpoints.up('lg')]: {
-            width: props => `${(840 / props.containerWidth) * 100}%`
+        [theme.breakpoints.up('md')]: {
+            // flex: props => `${(840 / props.containerWidth) * 100}%`
+            flex: `${mediaWidthPerc}%`
         }
     },
     media: {
         width: '100%',
         height: 360,
-        [theme.breakpoints.up('lg')]: {
-            width: 840,
+        [theme.breakpoints.up('md')]: {
+            width: '100%',
             height: 534,
         }
     },
@@ -33,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
     contentText: {
         padding: theme.spacing(10, 4),
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('md')]: {
             padding: theme.spacing(0, 11),
+            flex: `${100 - mediaWidthPerc}%`,
         }
     },
     navContainer: {
@@ -43,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
         height: 360,
         width: '100%',
-        [theme.breakpoints.up('lg')]: {
-            width: props => `${(840 / props.containerWidth) * 100}%`,
+        [theme.breakpoints.up('md')]: {
+            width: `${mediaWidthPerc}%`, //props => `${(840 / props.containerWidth) * 100}%`,
             height: 534,
             left: 0
         }
@@ -57,9 +61,9 @@ const useStyles = makeStyles((theme) => ({
         '& svg': {
             margin: '0 5px',
         },
-        [theme.breakpoints.up('lg')]: {
-            right: -142.19
-        }
+        [theme.breakpoints.up('md')]: {
+            left: `${mediaWidthPerc}%`,
+        },
     },
     slider: {
         '& .slick-list': {
@@ -76,7 +80,7 @@ const ArrowButton = withStyles((theme) => ({
     root: {
         backgroundColor: 'hsl(0, 0%, 0%)',
         borderRadius: 0,
-        padding: theme.spacing(2.5),
+        padding: theme.spacing(2.5, 2.5, 2.5, 2.5),
         [theme.breakpoints.up('lg')]: {
             padding: theme.spacing(3.16, 1.91, 3.16, 3.16)
         }
@@ -105,7 +109,7 @@ export default function Content(props) {
     const classes = useStyles({ containerWidth: props.containerWidth });
     const sliderRef = React.useRef();
     const theme = useTheme();
-    const mediaDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+    const mediaDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     const contentArray = [
         {
@@ -183,17 +187,15 @@ export default function Content(props) {
                     index={index} />
             ))}
         </Slider>
-        <Box className={classes.navContainer}>
-            <Box className={classes.nav}>
-                <ArrowButton disableFocusRipple variant='contained' onClick={handlePreviousClick}>
-                    <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleLeftIcon} />
-                </ArrowButton>
-                <ArrowButton variant='contained' onClick={handleNextClick}>
-                    <SvgIcon
-                        fontSize={mediaDesktop ? 'default' : 'small'}
-                        component={AngleRightIcon} />
-                </ArrowButton>
-            </Box>
+        <Box className={classes.nav}>
+            <ArrowButton disableFocusRipple variant='contained' onClick={handlePreviousClick}>
+                <SvgIcon fontSize={mediaDesktop ? 'default' : 'small'} component={AngleLeftIcon} />
+            </ArrowButton>
+            <ArrowButton variant='contained' onClick={handleNextClick}>
+                <SvgIcon
+                    fontSize={mediaDesktop ? 'default' : 'small'}
+                    component={AngleRightIcon} />
+            </ArrowButton>
         </Box>
     </Box>)
 }

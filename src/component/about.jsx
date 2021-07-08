@@ -3,27 +3,25 @@ import { Box, Card, CardMedia, makeStyles, Typography, useMediaQuery, useTheme }
 import img_about_dark from '../assets/image-about-dark.jpg';
 import img_about_light from '../assets/image-about-light.jpg';
 
+const mediaWidthPerc = (440 / 1423) * 100;
+
 const useStyles = makeStyles((theme) => ({
-    containerMedia: {
-        [theme.breakpoints.up('lg')]: {
-            width: props => `${(840 / props.containerWidth) * 100}%`,
-        },
+    mediaBox: {
+        flex: `${mediaWidthPerc}%`,        
+        backgroundColor: 'red',
     },
     media: {
         width: '100%',
         height: 266,
-        [theme.breakpoints.up('lg')]: {
-            width: 440,
-            height: 266,
-        }
     },
     title: {
         textTransform: 'uppercase',
         paddingBottom: theme.spacing(2)
     },
     contentText: {
+        flex: `${100 - (mediaWidthPerc * 2)}%`,
         padding: theme.spacing(10, 4),
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('md')]: {
             padding: theme.spacing(0, 6),
             paddingLeft: `calc(${theme.spacing(5)}px + 2px)`,
             paddingRight: `calc(${theme.spacing(5)}px + 2px)`,
@@ -39,14 +37,13 @@ export default function About(props) {
     return (<React.Fragment>
         <Box display='flex'
             flexDirection={desktop ? 'row' : 'column'}>
-            <Box>
+            <Box className={classes.mediaBox}>
                 <Card square>
                     <CardMedia className={classes.media}
                         image={img_about_dark} />
                 </Card>
             </Box>
-            <Box flexGrow={1}
-                className={classes.contentText}>
+            <Box className={classes.contentText}>
                 <Box display='flex'
                     flexDirection='column'
                     justifyContent='center'
@@ -64,7 +61,7 @@ export default function About(props) {
                     </Box>
                 </Box>
             </Box>
-            <Box>
+            <Box className={classes.mediaBox}>
                 <Card square>
                     <CardMedia className={classes.media}
                         image={img_about_light} />
