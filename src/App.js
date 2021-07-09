@@ -4,7 +4,7 @@ import { Box, Container, Grid, makeStyles } from '@material-ui/core';
 import Content from './component/content';
 import About from './component/about';
 
-const containerWidth = 1423;
+const containerWidth = 1440;
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -20,7 +20,7 @@ function App() {
   return (
     <Container className={classes.container}>
       <Header />
-      <Box boxShadow={5}>
+      <Box boxShadow={12}>
         <Grid container spacing={0}>
           <Grid item xs={12}>
             <Content 

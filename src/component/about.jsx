@@ -5,9 +5,11 @@ import img_about_light from '../assets/image-about-light.jpg';
 
 const mediaWidthPerc = (440 / 1423) * 100;
 
+const mediaWidth = 426;
+
 const useStyles = makeStyles((theme) => ({
     mediaBox: {
-        flex: `${mediaWidthPerc}%`,        
+        flex: props => `${((mediaWidth / props.containerWidth) * 100)}%`,
         backgroundColor: 'red',
     },
     media: {
@@ -19,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: theme.spacing(2)
     },
     contentText: {
-        flex: `${100 - (mediaWidthPerc * 2)}%`,
+        flex: props=> `${100 - (((mediaWidth / props.containerWidth) * 100) * 2)}%`,
         padding: theme.spacing(10, 4),
         [theme.breakpoints.up('md')]: {
             padding: theme.spacing(0, 6),
