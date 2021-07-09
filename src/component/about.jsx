@@ -5,8 +5,6 @@ import img_about_light from '../assets/image-about-light.jpg';
 
 const mediaWidth = 426;
 
-const mediaWidth = 426;
-
 const useStyles = makeStyles((theme) => ({
     mediaBox: {
         flex: props => `${((mediaWidth / props.containerWidth) * 100)}%`,
