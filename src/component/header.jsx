@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: theme.spacing(3),
         [theme.breakpoints.up('md')]: {
             paddingLeft: theme.spacing(7),
-            color: 'hsl(0, 0%, 100%)',
-            marginTop: theme.spacing(2),
+            color: 'hsl(0, 0%, 100%)',            
             width: 'initial'
         }
     },
